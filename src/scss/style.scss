@@ -1,0 +1,134 @@
+@use "base/reset";
+@use "abstracts/mixins";
+@use "abstracts/variable";
+@use "base/typography";
+@use "base/spacing";
+
+html {
+    background-color: variable.$stone10;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.card {
+    max-width: 736px;
+    background-color: variable.$white;
+    border-radius: 24px;
+    padding: spacing.$spacing-500;
+    margin: spacing.$spacing-1600 0 spacing.$spacing-1600 0;
+    display: grid;
+    row-gap: spacing.$spacing-500;
+
+    &__recipe {
+        display: grid;
+        row-gap: spacing.$spacing-400;
+    }
+
+    &__img {
+        width: 100%;
+        border-radius: 12px;
+    }
+
+    &__header {
+        display: grid;
+        row-gap: spacing.$spacing-300;
+    }
+
+    &__title {
+        font-family: "young-serif";
+        line-height: 100%;
+        letter-spacing: 0px;
+        color: variable.$stone90;
+        font-size: 40px;
+    }
+    &__desc {
+        font-family: "outfit-regular";
+        line-height: 150%;
+        color: variable.$stone60;
+    }
+
+    &__prep-time {
+        background-color: variable.$rose50;
+        padding: spacing.$spacing-300;
+        border-radius: 12px;
+        display: grid;
+        row-gap: spacing.$spacing-200;
+
+        &-title {
+            color: variable.$rose80;
+            font-family: "outfit-semibold";
+            line-height: 100%;
+            letter-spacing: 0px;
+            font-size: 20px;
+        }
+
+        &-list {
+            color: variable.$stone60;
+            list-style-position: inside;
+            font-family: "outfit-regular";
+            letter-spacing: 0px;
+            font-size: 16px;
+            line-height: 150%;
+            display: grid;
+            row-gap: spacing.$spacing-100;
+        }
+        strong {
+            padding-left: spacing.$spacing-200;
+        }
+
+        li {
+            padding-left: spacing.$spacing-100;
+
+            &::marker {
+                color: variable.$rose80;
+            }
+
+            &-item {
+            }
+        }
+    }
+
+    &__ingredients {
+        text-decoration: none;
+
+        &-title {
+            text-decoration: none;
+
+            &-item {
+                text-decoration: none;
+            }
+        }
+    }
+    &__instructions {
+        text-decoration: none;
+
+        &-title {
+            text-decoration: none;
+
+            &-list {
+                text-decoration: none;
+
+                &-item {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    &__nutrition {
+        text-decoration: none;
+
+        &-title {
+            text-decoration: none;
+
+            &-item {
+                text-decoration: none;
+            }
+        }
+    }
+}
