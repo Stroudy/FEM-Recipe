@@ -126,20 +126,42 @@ body {
         }
     }
     &__instructions {
-        text-decoration: none;
+        display: grid;
+        row-gap: spacing.$spacing-300;
 
         &-title {
-            text-decoration: none;
+            color: variable.$brown80;
+            font-family: "young-serif";
+            line-height: 100%;
+            font-size: 28px;
+            letter-spacing: 0px;
+            font-weight: normal;
+        }
+        &-list {
+            font-family: "outfit-regular";
+            line-height: 150%;
+            font-size: 16px;
+            letter-spacing: 0px;
+            color: variable.$stone60;
+            display: grid;
+            row-gap: spacing.$spacing-100;
+            padding-left: spacing.$spacing-300;
+        }
 
-            &-list {
-                text-decoration: none;
+        & li {
+            padding-left: spacing.$spacing-200;
+        }
 
-                &-item {
-                    text-decoration: none;
-                }
+        &-text {
+        }
+        &-item {
+            &::marker {
+                color: variable.$brown80;
+                font-family: "outfit-bold";
             }
         }
     }
+
     &__nutrition {
         text-decoration: none;
 
