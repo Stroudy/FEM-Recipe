@@ -1,0 +1,14 @@
+@mixin text-preset($ff, $lh, $ls, $color, $fw) {
+    font-family: $ff;
+    line-height: $lh;
+    letter-spacing: $ls;
+    color: $color;
+    font-weight: $fw;
+}
+
+@mixin layout($dp, $rg) {
+    display: $dp;
+    row-gap: $rg;
+}
+
+// @include mixins.layout($dp, $rg);

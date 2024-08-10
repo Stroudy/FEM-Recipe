@@ -17,17 +17,15 @@ body {
 }
 
 .card {
+    @include mixins.layout(grid, spacing.$spacing-500);
     max-width: 736px;
     background-color: variable.$white;
     border-radius: 24px;
     padding: spacing.$spacing-500;
     margin: spacing.$spacing-1600 0 spacing.$spacing-1600 0;
-    display: grid;
-    row-gap: spacing.$spacing-500;
 
     &__recipe {
-        display: grid;
-        row-gap: spacing.$spacing-400;
+        @include mixins.layout(grid, spacing.$spacing-400);
     }
 
     &__img {
@@ -36,47 +34,35 @@ body {
     }
 
     &__header {
-        display: grid;
-        row-gap: spacing.$spacing-300;
+        @include mixins.layout(grid, spacing.$spacing-300);
     }
 
     &__title {
-        font-family: "young-serif";
-        line-height: 100%;
-        letter-spacing: spacing.$l-spacing-0;
-        color: variable.$stone90;
-        font-size: 40px;
-        font-weight: normal;
+        @include mixins.text-preset("young-serif", 100%, spacing.$l-spacing-0, variable.$stone90, normal);
     }
     &__desc {
-        font-family: "outfit-regular";
-        line-height: 150%;
-        color: variable.$stone60;
+        @include mixins.text-preset("outfit-regular", 150%, 0, variable.$stone60, null);
+    }
+    & hr {
+        border: 1px solid variable.$stone15;
     }
 
     &__prep-time {
+        @include mixins.layout(grid, spacing.$spacing-200);
         background-color: variable.$rose50;
         padding: spacing.$spacing-300;
         border-radius: 12px;
-        display: grid;
-        row-gap: spacing.$spacing-200;
         letter-spacing: spacing.$l-spacing-0;
 
         &-title {
-            color: variable.$rose80;
-            font-family: "outfit-semibold";
-            line-height: 100%;
-            font-size: 20px;
+            @include mixins.text-preset("outfit-semibold", 100%, 0, variable.$rose80, null);
         }
 
         &-list {
-            color: variable.$stone60;
+            @include mixins.layout(grid, spacing.$spacing-100);
+            @include mixins.text-preset("outfit-regular", 150%, 0, variable.$stone60, null);
             list-style-position: inside;
-            font-family: "outfit-regular";
             font-size: 16px;
-            line-height: 150%;
-            display: grid;
-            row-gap: spacing.$spacing-100;
         }
         strong {
             padding-left: spacing.$spacing-200;
@@ -92,30 +78,21 @@ body {
     }
 
     &__ingredients {
+        @include mixins.layout(grid, spacing.$spacing-300);
         list-style-position: inside;
-        display: grid;
-        row-gap: spacing.$spacing-300;
 
         &-title {
-            color: variable.$brown80;
-            font-family: "young-serif";
-            line-height: 100%;
+            @include mixins.text-preset("young-serif", 100%, 0, variable.$brown80, normal);
             font-size: 28px;
-            letter-spacing: 0px;
-            font-weight: normal;
         }
 
         &-list {
-            display: grid;
-            row-gap: spacing.$spacing-100;
+            @include mixins.layout(grid, spacing.$spacing-100);
             padding-left: spacing.$spacing-100;
         }
         &-item {
-            font-family: "outfit-regular";
-            line-height: 150%;
+            @include mixins.text-preset("outfit-regular", 150%, 0, variable.$stone60, null);
             font-size: 16px;
-            letter-spacing: 0px;
-            color: variable.$stone60;
 
             &::marker {
                 color: variable.$brown80;
@@ -126,51 +103,82 @@ body {
         }
     }
     &__instructions {
-        display: grid;
-        row-gap: spacing.$spacing-300;
+        @include mixins.layout(grid, spacing.$spacing-300);
 
         &-title {
-            color: variable.$brown80;
-            font-family: "young-serif";
-            line-height: 100%;
+            @include mixins.text-preset("young-serif", 100%, 0, variable.$brown80, normal);
             font-size: 28px;
-            letter-spacing: 0px;
-            font-weight: normal;
         }
         &-list {
-            font-family: "outfit-regular";
-            line-height: 150%;
+            @include mixins.layout(grid, spacing.$spacing-100);
+            @include mixins.text-preset("outfit-regular", 150%, 0, variable.$stone60, null);
             font-size: 16px;
-            letter-spacing: 0px;
-            color: variable.$stone60;
-            display: grid;
-            row-gap: spacing.$spacing-100;
             padding-left: spacing.$spacing-300;
+            padding-right: 10px;
         }
 
         & li {
             padding-left: spacing.$spacing-200;
         }
 
-        &-text {
-        }
         &-item {
             &::marker {
-                color: variable.$brown80;
-                font-family: "outfit-bold";
+                @include mixins.text-preset("outfit-bold", null, null, variable.$brown80, null);
             }
         }
     }
 
     &__nutrition {
-        text-decoration: none;
+        @include mixins.layout(grid, spacing.$spacing-300);
 
         &-title {
-            text-decoration: none;
-
-            &-item {
-                text-decoration: none;
-            }
+            font-size: 28px;
+            text-align: left;
+            @include mixins.text-preset("young-serif", 100%, 0, variable.$brown80, normal);
+        }
+        &-sub th {
+            font-size: 16px;
+            @include mixins.text-preset("outfit-regular", 150%, 0, variable.$stone60, normal);
+        }
+        &-item {
+            @include mixins.text-preset("outfit-regular", 150%, 0, variable.$stone60, normal);
+            font-size: 16px;
+            display: flex;
+            justify-content: space-around;
+            text-align: left;
+            border-bottom: 1px solid variable.$stone15;
+            padding: 0 spacing.$spacing-400 0 spacing.$spacing-400;
+        }
+        &-item th {
+            font-weight: normal;
+            width: 100%;
+        }
+        &-item td {
+            @include mixins.text-preset("outfit-bold", 150%, 0, variable.$brown80, null);
+            width: 100%;
+            margin-left: spacing.$spacing-200;
+        }
+        &-item:nth-child(1),
+        &-item:nth-child(2),
+        &-item:nth-child(3) {
+            padding-bottom: spacing.$spacing-150;
+        }
+        &-item:nth-child(2),
+        &-item:nth-child(3),
+        &-item:nth-child(4) {
+            padding-top: spacing.$spacing-150;
+        }
+        &-item:nth-child(4) {
+            border: transparent;
         }
     }
+}
+.attribution {
+    font-size: 17px;
+    text-align: center;
+    padding: 20px;
+    margin-top: -57px;
+}
+.attribution a {
+    color: hsl(228, 45%, 44%);
 }
